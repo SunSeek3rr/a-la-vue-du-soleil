@@ -3,10 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>À la vue du soleil - TFE</title>
+
+    <meta name="description" content="Exposition web interactive visant à vous immerger dans mon introspection quotidienne, prenant comme base le cycle journalier du soleil.">
+    <meta property="og:site_name" content="SunSeek3rr - Sébastien D'Agostin">
+    <meta property="og:title" content="À la vue du soleil - TFE">
+    <meta property="og:description" content="Exposition web interactive visant à vous immerger dans mon introspection quotidienne, prenant comme base le cycle journalier du soleil.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sebastien-dagostin.be/tfe">
+    
     <script type="module" src="js/main.js" defer></script>
 </head>
 <body>
-    <h1>Coucou le template!</h1>
+    <div class="loader">
+        <svg class="loader__svg" width="220" height="120" viewBox="0 0 220 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="loader">
+                <path id="sunPath" d="M24 144C24 136.293 24 120.52 24 112.317C24 63.5407 60.9512 24 109 24C157.049 24 196 63.5407 196 112.317C196 120.52 196 135.556 196 144" stroke="transparent"/>
+
+                <circle id="sun" cx="24" cy="148" r="24" fill="#EC6A00"/>
+
+                <line id="bar" y1="119.5" x2="220" y2="119.5" stroke="#020018"/>
+
+                <line id="progressBar" y1="119.5" x2="0" y2="119.5" stroke="#FF7300"/>
+
+            </g>
+        </svg>
+
+        <span class="loader__progress"></span>
+    </div>
+    <header class="header">
+        <nav class="menu">
+            <ul class="menu__list">
+                <li class="menu__el"><a href="./aube.html" class="menu__el--link">L'aube</a></li>
+                <li class="menu__el"><a href="/zenith.html" class="menu__el--link">Le zénith</a></li>
+                <li class="menu__el"><a href="/crepuscule.html" class="menu__el--link">Le crépuscule</a></li>
+                <li class="menu__el"><a href="/nuit.html" class="menu__el--link">La nuit</a></li>
+            </ul>
+            <button class="menu__btn"></button>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="landing">
+            <div class="landing__content">
+                <h1 class="landing__title">
+                    <span class="landing__span landing__span--small">À la vue du</span>
+                    <span class="landing__span landing__span--big">Soleil</span>
+                </h1>
+
+                <div class="landing__cta-wrapper">
+                    <button class="landing__btn">Démarrer</button>
+                    <span class="landing__scroll">(ou scrollez)</span>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
