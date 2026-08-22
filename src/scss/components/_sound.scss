@@ -1,0 +1,87 @@
+@use "../utils/variables" as *;
+@use "../utils/keyframes" as *;
+
+.sound {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 1.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    background-color: $dark-bg;
+
+    &__btn {
+        opacity: 0;
+        position: fixed;
+        bottom: 7.2rem;
+        right: 1.6rem;
+    }
+}
+
+.message {
+    &-container {
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.4rem;
+    }
+
+    &__svg {
+        display: block;
+        width: 5.6rem;
+        height: 5.6rem;
+
+        & svg {
+            width: 100%;
+            height: 100%;
+
+            & #bar1, & #bar2, & #bar3, & #bar4, & #bar5, & #bar6, & #bar7 {
+                transform-origin: center;
+            }
+
+            & #bar1 {
+                animation: bounceSmall .8s linear infinite alternate-reverse;
+            }
+
+            & #bar2 {
+                animation: bounceSmall .6s linear infinite alternate-reverse;
+            }
+
+            & #bar3 {
+                animation: bounceBig .8s linear infinite alternate-reverse;
+            }
+
+            & #bar4 {
+                animation: bounceBig .6s linear infinite alternate-reverse;
+            }
+
+            & #bar5 {
+                animation: bounceSmall 1.2s linear infinite alternate-reverse;
+            }
+            
+            & #bar6 {
+                animation: bounceBig .4s linear infinite alternate-reverse;
+            }
+
+            & #bar7 {
+                animation: bounceSmall .6s linear infinite alternate-reverse;
+            }
+        }
+    }
+}
+
+@media (min-width: 392px) {
+    .sound {
+        padding: 0 2.4rem;
+
+        &__btn {
+            right: 2.4rem;
+        }
+    }
+}

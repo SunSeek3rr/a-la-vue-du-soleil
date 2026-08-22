@@ -1,0 +1,163 @@
+@use "../utils/variables" as *;
+
+.header, .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 1.6rem;
+    z-index: 99;
+    background-color: transparent;
+
+    &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $dark-bg;
+        opacity: 1;
+        z-index: -1;
+
+        transform: translateX(100%);
+
+        transition: transform .6s $power2inOut;
+    }
+}
+
+.menu {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 4.8rem;
+    background-color: $dark-bg;
+    z-index: 97;
+
+    transform: translateX(100%);
+    transition: transform .6s $power2inOut;
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+    }
+
+    &__el {
+        &--link {
+            position: relative;
+            color: $dark-accent;
+            text-decoration: none;
+
+            &::after {
+                display: block;
+                position: absolute;
+                left: calc(100% + 1.6rem);
+                top: 0;
+                content: "\2192";
+            }
+        }
+    }
+
+    &__btn {
+        width: 4rem;
+        height: 4rem;
+        position: relative;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        user-select: none;
+        
+        & .btn__span {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: $light-text;
+            transform-origin: center center;
+
+            transition: transform .6s $power2inOut, background-color .6s $power2inOut, opacity .3s $power2inOut;
+        }
+
+        & .btn__span:nth-of-type(1) {
+            transform: translateY(-1.2rem) rotateZ(0deg);
+        }
+
+        & .btn__span:nth-of-type(2) {
+            opacity: 1;
+            transition: opacity .3s $power2inOut .3s, transform .6s $power2inOut, background-color .6s $power2inOut;
+        }
+
+        & .btn__span:nth-of-type(3) {
+            transform: translateY(1.2rem) rotateZ(0deg);
+        }
+    }
+}
+
+body {
+    &.menu--open {
+
+        overflow: hidden;
+
+        .header {
+            background-color: transparent;
+
+            transition: background-color .1s linear;
+
+            &::after {
+                transform: translate(0);
+                opacity: 1;
+            }
+        }
+
+        .menu {
+            transform: translateX(0);
+
+            &__btn {
+
+                & .btn__span {
+                    position: absolute;
+                    background-color: $dark-text;
+                }
+
+                & .btn__span:nth-of-type(1) {
+                    transform: rotateZ(45deg);
+                }
+
+                & .btn__span:nth-of-type(2) {
+                    opacity: 0;
+                    transition: opacity .3s $power2inOut 0s, transform .6s $power2inOut, background-color .6s $power2inOut;
+                }
+
+                & .btn__span:nth-of-type(3) {
+                    transform: rotateZ(-45deg)
+                }
+            }
+        }
+    }
+}
+
+@media (hover: hover) {
+    .menu {
+        &__btn {
+            &:hover {
+                & .btn__span {
+                    background-color: $light-accent;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 767px) {
+    .menu {
+        padding-left: 9.6rem;
+    }
+}

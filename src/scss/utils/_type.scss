@@ -1,8 +1,5 @@
 @use "./variables" as *;
 
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap');
-
-
 html {
     font-size: 62.5%;
 }
@@ -13,13 +10,19 @@ body{
 }
 
 h1, h2, h3, h4, h5, h6 {
+    font-family: 'Instrument Serif', serif;
     font-weight: 400;
+    line-height: 100%;
+}
+
+.btn {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 1.2rem;
 }
 
 .landing {
 
     &__title {
-        font-family: 'Instrument Serif', serif;
         display: flex;
         flex-direction: column;
         font-style: italic;
@@ -30,6 +33,7 @@ h1, h2, h3, h4, h5, h6 {
         line-height: 100%;
         &--small {
             font-size: 2.8rem;
+            color: $light-text;
         }
 
         &--big {
@@ -38,8 +42,98 @@ h1, h2, h3, h4, h5, h6 {
             letter-spacing: -1%;
             margin-left: -.2rem;
             color: $light-accent;
-            line-height: 100%;
+        }
+    }
+    
+    &__scroll {
+        font-size: 1.2rem;
+    }
+}
+
+.sound {
+    & .message {
+        &__text {
+            font-size: 2.1rem;
+            font-family: 'Instrument Serif', serif;
+            text-align: center;
+            color: $dark-text;
         }
     }
 }
 
+.intro, .functioning {
+    &__title {
+        color: $light-accent;
+        font-size: 3.8rem;
+    }
+
+    &__text {
+        font-size: 1.6rem;
+        line-height: 150%;
+    }
+}
+
+.menu {
+    &__el {
+        &--link {
+            font-size: 3.8rem;
+            font-family: 'Instrument Serif', serif;
+        }
+    }
+}
+
+@media (min-width: 767px) {
+    .landing {
+        &__span {
+
+            &--small {
+                font-size: 3.8rem;
+            }
+
+            &--big {
+                font-size: 16rem;
+            }
+        }
+
+        &__btn {
+            font-size: 2.1rem;
+        }
+
+        &__scroll {
+            font-size: 1.6rem;
+        }
+    }
+
+    .intro, .functioning {
+        &__title {
+            font-size: 5.1rem;
+        }
+
+        &__text {
+            font-size: 2.1rem;
+        }
+    }
+
+    .menu {
+        &__el {
+            &--link {
+                font-size: 5.1rem;
+            }
+        }
+    }
+}
+
+@media (min-width: 1023px) {
+    .landing {
+         &__span {
+
+            &--small {
+                font-size: 2.8rem;
+            }
+
+            &--big {
+                font-size: 12rem;
+            }
+        }
+    }
+}

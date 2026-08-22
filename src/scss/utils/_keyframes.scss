@@ -1,0 +1,28 @@
+// Landing - Images
+
+@keyframes floatImage {
+    50% {
+        transform: translateY(-.8rem);
+    }
+
+}
+
+
+
+// Landing - Sound modal
+
+@keyframes bounceSmall {
+  from {
+    transform: scaleY(1.6);
+  } to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes bounceBig {
+  from {
+    transform: scaleY(0.5);
+  } to {
+    transform: scaleY(1);
+  }
+}

@@ -1,0 +1,6 @@
+<svg width="438" height="116" viewBox="0 0 438 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="landingAnim">
+<circle id="landingSun" cx="217.703" cy="32" r="31" fill="#EC6A00"/>
+<path id="landingPath" d="M0.202972 115C32.203 70.5 103.203 32 217.703 32C332.203 32 407.203 72.5 437.203 115.5" stroke="#EC6A00" stroke-opacity="0.4" stroke-width="0.5"/>
+</g>
+</svg>

@@ -11,10 +11,31 @@
     <meta property="og:description" content="Exposition web interactive visant à vous immerger dans mon introspection quotidienne, prenant comme base le cycle journalier du soleil.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.sebastien-dagostin.be/tfe">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     
     <script type="module" src="js/main.js" defer></script>
 </head>
 <body>
+
+    <div class="loader">
+        <svg class="loader__svg" width="220" height="120" viewBox="0 0 220 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="loader">
+                <path id="sunPath" d="M24 144C24 136.293 24 120.52 24 112.317C24 63.5407 60.9512 24 109 24C157.049 24 196 63.5407 196 112.317C196 120.52 196 135.556 196 144" stroke="transparent"/>
+
+                <circle id="sun" cx="24" cy="148" r="24" fill="#EC6A00"/>
+
+                <line id="bar" y1="119.5" x2="220" y2="119.5" stroke="#020018"/>
+
+                <line id="progressBar" y1="119.5" x2="0" y2="119.5" stroke="#FF7300"/>
+
+            </g>
+        </svg>
+
+        <span class="loader__progress"></span>
+    </div>
 
     <main class="main">
         <section class="landing">
