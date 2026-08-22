@@ -153,11 +153,51 @@ body {
                 }
             }
         }
+
+        &__el {
+            &--link {
+                transition: color .3s $power2inOut; 
+
+                &:hover {
+                    color: $dark-text;
+                }
+            }
+        }
     }
 }
 
 @media (min-width: 767px) {
     .menu {
         padding-left: 9.6rem;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .header {
+        &::after {
+            width: 35%;
+            transform: translateX(calc(100vw + 100%));
+        }
+    }
+    .menu {
+        width: 35%;
+        padding: 7.2rem 6.4rem;
+
+        transform: translateX(calc(100vw + 100%));
+    }
+
+    body {
+        &.menu--open {
+            .header {
+                &::after {
+                    transform: translateX(calc(100vw - 100%));
+                }
+            }
+
+            .menu {
+                transform: translateX(calc(100vw - 100%));
+            }
+        }
     }
 }

@@ -125,9 +125,32 @@ function startSunAnimation() {
   
   const menuBtn = document.querySelector('.menu__btn');
   menuBtn.addEventListener('click', () => { 
-    document.body.classList.toggle('menu--open'); 
+    const isOpen = document.body.classList.toggle('menu--open');
+
+    gsap.killTweensOf('.menu__el');
+
+    if (isOpen) {
+      gsap.set('.menu__el', {
+        x: 24,
+        opacity: 0
+      });
+
+      gsap.to('.menu__el', {
+        x: 0,
+        opacity: 1,
+        duration: 0.6,
+        stagger: 0.2,
+        delay: 0.2,
+        ease: "power2.inOut"
+      });
+    } else {
+      gsap.set('.menu__el', {
+        x: 24,
+        opacity: 0
+      });
+    }
   });
-  
+
   
   
   // Anim website entry (sound modal closed)
