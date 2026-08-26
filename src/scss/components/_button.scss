@@ -5,11 +5,13 @@
     background-color: rgba($dark-bg, .3);
     padding: 1.6rem 4.8rem;
     border-radius: 4.8rem;
+    text-decoration: none;
+    text-align: center;
     cursor: pointer;
 
     transition: fill .3s $power2inOut, background-color .3s $power2inOut;
 
-    & .btn__svg {
+    &__svg {
         display: block;
         height: 1.5rem;
 
@@ -24,9 +26,20 @@
 
         & .btn__svg {
 
-        & path {
-            fill: $dark-bg;
+            & path {
+                fill: $dark-bg;
+            }
         }
     }
+}
+
+@media (min-width: 767px) {
+    .btn {
+        padding: 2.4rem 6.4rem;
+        
+        &__svg {
+            height: 2.1rem;
+        }
     }
 }
+

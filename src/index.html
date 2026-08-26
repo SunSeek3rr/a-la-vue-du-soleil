@@ -52,6 +52,7 @@
                 </svg>
             </span>
             <span class="message__text">Activez le son afin de profiter de l’expérience narrative optimale.</span>
+            <span class="message__text">Attention, les sections <i>le zénith</i> et <i>la nuit</i> contiennent des flashs visuels.</span>
         </div>
 
         <button class="sound__btn btn" aria-label="Suivant">
@@ -73,10 +74,10 @@
 
     <nav class="menu" style="opacity: 0; visibility: hidden;">
         <ul class="menu__list">
-            <li class="menu__el"><a href="./experience.html" class="menu__el--link">l'aube</a></li>
-            <li class="menu__el"><a href="./experience.html" class="menu__el--link">le zénith</a></li>
-            <li class="menu__el"><a href="./experience.html" class="menu__el--link">le crépuscule</a></li>
-            <li class="menu__el"><a href="./experience.html" class="menu__el--link">la nuit</a></li>
+            <li class="menu__el"><a href="./experience.html?section=dawn" class="menu__el--link">l'aube</a></li>
+            <li class="menu__el"><a href="./experience.html?section=zenith" class="menu__el--link">le zénith</a></li>
+            <li class="menu__el"><a href="./experience.html?section=dusk" class="menu__el--link">le crépuscule</a></li>
+            <li class="menu__el"><a href="./experience.html?section=night" class="menu__el--link">la nuit</a></li>
         </ul>
     </nav>
 
@@ -92,15 +93,15 @@
                         </h1>
         
                         <div class="landing__cta-wrapper">
-                            <button class="landing__btn btn">Démarrer</button>
+                            <a class="landing__btn btn" href="./experience.html">Démarrer</a>
                             <span class="landing__scroll">(ou scrollez)</span>
                         </div>
                     </div>
         
                     <div class="landing__gallery">
-                        <div class="landing__image"><img src="./assets/images/leftImg.jpg" alt=""></div>
-                        <div class="landing__image"><img src="./assets/images/centerImg.jpg" alt=""></div>
-                        <div class="landing__image"><img src="./assets/images/rightImg.jpg" alt=""></div>
+                        <div class="landing__image"><img src="./assets/images/leftImg.webp" alt="Couché de soleil derrière les arbres"></div>
+                        <div class="landing__image"><img src="./assets/images/centerImg.webp" alt="Photo de moi de dos qui regarde le ciel de l'aube"></div>
+                        <div class="landing__image"><img src="./assets/images/rightImg.webp" alt="Vue lointaine des champs pendant l'aube"></div>
                     </div>
         
                     <div class="landing__anim">

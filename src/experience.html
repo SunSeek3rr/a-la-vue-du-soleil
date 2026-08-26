@@ -18,7 +18,7 @@
     
     <script type="module" src="js/main.js" defer></script>
 </head>
-<body>
+<body data-page="experience">
 
     <h1 class="title">À la vue du Soleil - Expérience</h1>
 
@@ -40,44 +40,209 @@
     </div>
 
     <main class="main">
-        <section class="dawn">
-            <h2 class="dawn__title poem__title">l'aube</h2>
-            <p class="dawn__text poem__verse">Ô grand soleil,</p>
-            <p class="dawn__text poem__verse">Toi qui au réveil,</p>
-            <p class="dawn__text poem__verse">Me chauffe le corps,</p>
-            <p class="dawn__text poem__verse">Dis-moi pourquoi je ne t'y sens pas encore.</p>
+
+        <section class="dawn section" data-section="dawn">
+            <div class="dawn__content">
+                <h2 class="dawn__title poem__title">l'aube</h2>
+                
+                <div class="poem-container">
+                    <p class="dawn__verse poem__verse">
+                        Un matin comme les autres,<br>
+                        Un vide bien différent,<br>
+                        J'irai m'exiler à l'aube,<br>
+                        De cette vie vociférante.
+                    </p>
+                </div>
+                <button class="dawn__btn btn btn--poem">
+                    <span class="btn__svg">
+                        <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path id="icon__arrow" d="M16.7071 8.07106C17.0976 7.68054 17.0976 7.04737 16.7071 6.65685L10.3431 0.292885C9.95262 -0.0976396 9.31946 -0.0976396 8.92893 0.292885C8.53841 0.683409 8.53841 1.31657 8.92893 1.7071L14.5858 7.36395L8.92893 13.0208C8.53841 13.4113 8.53841 14.0445 8.92893 14.435C9.31946 14.8255 9.95262 14.8255 10.3431 14.435L16.7071 8.07106ZM0 7.36395V8.36395H16V7.36395V6.36395H0V7.36395Z" fill="white"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+            
+            <div class="dawn__video video-container">
+                <video class="video" preload="metadata" playsinline>
+                    <source src="./assets/videos/dawnVideo.mp4">
+                </video>
+            </div>
+
+            <div class="dawn__image-container">
+                <img src="./assets/images/dawn-sky.webp" alt="Vue du ciel de ma perspective, teint orangé typique de l'aube">
+            </div>
+            
         </section>
 
-        <section class="zenith">
-            <h2 class="zenith__title poem__title">le zénith</h2>
-            <p class="zenith__text poem__verse">Toi qui brille,</p>
-            <p class="zenith__text poem__verse">le plus haut dans le ciel,</p>
-            <p class="zenith__text poem__verse">tu exposes toutes les querelles,</p>
-            <p class="zenith__text poem__verse">dont mon conscient s’habille.</p>
+        <section class="zenith section" data-section="zenith">
+            <div class="zenith__content">
+                <h2 class="zenith__title poem__title">le zénith</h2>
+
+                <div class="poem-container">
+                    <p class="zenith__verse poem__verse">
+                        Ô grand soleil,<br>
+                        D’aussi haut dans le ciel,<br>
+                        Tu réveilles sans amoindrir,<br>
+                        Ce que j'ai vécu de pire
+                    </p>
+                </div>
+
+                <button class="zenith__btn btn btn--poem">
+                    <span class="btn__svg">
+                        <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path id="icon__arrow" d="M16.7071 8.07106C17.0976 7.68054 17.0976 7.04737 16.7071 6.65685L10.3431 0.292885C9.95262 -0.0976396 9.31946 -0.0976396 8.92893 0.292885C8.53841 0.683409 8.53841 1.31657 8.92893 1.7071L14.5858 7.36395L8.92893 13.0208C8.53841 13.4113 8.53841 14.0445 8.92893 14.435C9.31946 14.8255 9.95262 14.8255 10.3431 14.435L16.7071 8.07106ZM0 7.36395V8.36395H16V7.36395V6.36395H0V7.36395Z" fill="white"/>
+                        </svg>
+                    </span>
+                </button>
+
+            </div>
+
+            <div class="zenith__video video-container">
+                <video class="video to-load" preload="metadata" playsinline>
+                    <source src="./assets/videos/zenithVideo.mp4">
+                </video>
+            </div>
         </section>
 
-        <section class="dusk">
-            <h2 class="dusk__title poem__title">le crépuscule</h2>
-            <p class="dusk__text poem__verse">Quand ta lumière s’apaise,</p>
-            <p class="dusk__text poem__verse">Qu’elle disparait sous l’horizon,</p>
-            <p class="dusk__text poem__verse">Je sens s’ouvrir la plaie,</p>
-            <p class="dusk__text poem__verse">Qui fait réapparaître cet humain moribond.</p>
+        <section class="dusk section" data-section="dusk">
+            <div class="dusk__content">
+                <h2 class="dusk__title poem__title">le crépuscule</h2>
+    
+                <div class="poem-container">
+                    <p class="dusk__verse poem__verse">
+                        Quand ta lumière s’apaise,<br>
+                        Disparaissant sous l’horizon,<br>
+                        Je sens s’ouvrir la plaie,<br>
+                        Je me sens moribond.
+                    </p>
+                </div>
+    
+                <button class="dusk__btn btn btn--poem">
+                    <span class="btn__svg">
+                        <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path id="icon__arrow" d="M16.7071 8.07106C17.0976 7.68054 17.0976 7.04737 16.7071 6.65685L10.3431 0.292885C9.95262 -0.0976396 9.31946 -0.0976396 8.92893 0.292885C8.53841 0.683409 8.53841 1.31657 8.92893 1.7071L14.5858 7.36395L8.92893 13.0208C8.53841 13.4113 8.53841 14.0445 8.92893 14.435C9.31946 14.8255 9.95262 14.8255 10.3431 14.435L16.7071 8.07106ZM0 7.36395V8.36395H16V7.36395V6.36395H0V7.36395Z" fill="white"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+
+            <div class="dusk__video video-container">
+                <video class="video to-load" preload="metadata" playsinline>
+                    <source src="./assets/videos/duskFirstVideo.mp4">
+                </video>
+
+                <video class="video to-load" preload="metadata" playsinline>
+                    <source src="./assets/videos/duskSecondVideo.mp4">
+                </video>
+            </div>
+            
         </section>
 
-        <section class="night">
-            <h2 class="night__title poem__title">la nuit</h2>
-            <p class="night__text poem__verse">Ô grand soleil,</p>
-            <p class="night__text poem__verse">Toi qui au sommeil,</p>
-            <p class="night__text poem__verse">Ravive l’introspecte,</p>
-            <p class="night__text poem__verse">Dis moi pourquoi,</p>
-            <p class="night__text poem__verse">Je sais que c’est de moi,</p>
-            <p class="night__text poem__verse">Que lumière émanera,</p>
-            <p class="night__text poem__verse">Laissant pousser mes ailes.</p>
+        <section class="night section" data-section="night">
+            <div class="night__content">
+                <h2 class="night__title poem__title">la nuit</h2>
+    
+                <div class="poem-container">
+                    <p class="night__verse poem__verse">
+                        Ô grand soleil,<br>
+                        Toi qui expose sans pitié,<br>
+                        Ce qui brule en mon être,<br>
+                        Te cacherais tu peut-être,<br>
+                        Dans mon interiorité.
+                    </p>
+                </div>
+    
+                <button class="night__btn btn btn--poem">
+                    <span class="btn__svg">
+                        <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path id="icon__arrow" d="M16.7071 8.07106C17.0976 7.68054 17.0976 7.04737 16.7071 6.65685L10.3431 0.292885C9.95262 -0.0976396 9.31946 -0.0976396 8.92893 0.292885C8.53841 0.683409 8.53841 1.31657 8.92893 1.7071L14.5858 7.36395L8.92893 13.0208C8.53841 13.4113 8.53841 14.0445 8.92893 14.435C9.31946 14.8255 9.95262 14.8255 10.3431 14.435L16.7071 8.07106ZM0 7.36395V8.36395H16V7.36395V6.36395H0V7.36395Z" fill="white"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+
+            <div class="night__video video-container">
+                <video class="video to-load" preload="metadata" playsinline>
+                    <source src="./assets/videos/nightFirstVideo.mp4">
+                </video>
+
+                <video class="video to-load" preload="metadata" playsinline>
+                    <source src="./assets/videos/nightSecondVideo.mp4">
+                </video>
+            </div>
+            
         </section>
 
         <div class="interface">
-            <button class="interface__btn--prev"></button>
-            <button class="interface__btn--next"></button>
+
+            <div class="interface__experience">
+
+                <div class="interface__btn-container">
+                    <button class="interface__btn btn btn--prev">
+                        <span class="btn__svg">
+                                <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path id="icon__arrow" d="M16.7071 8.07106C17.0976 7.68054 17.0976 7.04737 16.7071 6.65685L10.3431 0.292885C9.95262 -0.0976396 9.31946 -0.0976396 8.92893 0.292885C8.53841 0.683409 8.53841 1.31657 8.92893 1.7071L14.5858 7.36395L8.92893 13.0208C8.53841 13.4113 8.53841 14.0445 8.92893 14.435C9.31946 14.8255 9.95262 14.8255 10.3431 14.435L16.7071 8.07106ZM0 7.36395V8.36395H16V7.36395V6.36395H0V7.36395Z" fill="white"/>
+                                </svg>
+                            </span>
+                    </button>
+    
+                    <button class="interface__btn btn btn--next">
+                        <span class="btn__svg">
+                                <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path id="icon__arrow" d="M16.7071 8.07106C17.0976 7.68054 17.0976 7.04737 16.7071 6.65685L10.3431 0.292885C9.95262 -0.0976396 9.31946 -0.0976396 8.92893 0.292885C8.53841 0.683409 8.53841 1.31657 8.92893 1.7071L14.5858 7.36395L8.92893 13.0208C8.53841 13.4113 8.53841 14.0445 8.92893 14.435C9.31946 14.8255 9.95262 14.8255 10.3431 14.435L16.7071 8.07106ZM0 7.36395V8.36395H16V7.36395V6.36395H0V7.36395Z" fill="white"/>
+                                </svg>
+                            </span>
+                    </button>
+                </div>
+
+                <div class="interface__content">
+                    <div class="interface__header">
+                        <span class="interface__title">l'aube</span>
+    
+                        <span class="interface__decoration"></span>
+    
+                        <button class="interface__btn btn--dropdown">
+                            <span class="btn__svg">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="icon__dropdown">
+                                        <path id="Arrow 2" d="M24.8839 18.1161C24.3957 17.628 23.6043 17.628 23.1161 18.1161L15.1612 26.0711C14.673 26.5592 14.673 27.3507 15.1612 27.8388C15.6493 28.327 16.4408 28.327 16.9289 27.8388L24 20.7678L31.0711 27.8388C31.5592 28.327 32.3507 28.327 32.8388 27.8388C33.327 27.3507 33.327 26.5592 32.8388 26.0711L24.8839 18.1161ZM24 20H25.25V19H24H22.75V20H24Z" fill="#FEFAF7"/>
+                                    </g>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+
+                    <div class="interface__poem poem-container">
+                        <p class="poem__verse">
+                            Un matin comme les autres,<br>
+                            Un vide bien différent,<br>
+                            J'irai m'exiler à l'aube,<br>
+                            De cette vie vociférante.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="interface__subtitles">
+                    <span class="subtitles">Ce que je vois est fascinant, et ceci n’est qu’un test pour voir si c’est ok de mettre des sous-titres ou si ça va être compliqué blablabla</span>
+                </div>
+
+            </div>
+
+            <button class="interface__btn btn--exit">
+                <span class="btn__svg">
+                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_377_174)">
+                            <path d="M22.6006 1H7.48019C3.90128 1 1 3.86538 1 7.4V26.6C1 30.1346 3.90128 33 7.48019 33H22.6006M10.3963 17.001L32.8618 16.9999M25.3002 8.46667L32.7079 16.2705C33.0974 16.6808 33.0974 17.3192 32.7079 17.7295L25.3002 25.5333" stroke="#020018" stroke-width="1.4" stroke-linecap="round"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_377_174">
+                            <rect width="34" height="34" fill="white"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </span>
+            </button>
+            
         </div>
     </main>
 </body>

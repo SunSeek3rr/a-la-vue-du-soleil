@@ -20,6 +20,10 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.2rem;
 }
 
+i {
+    color: $dark-accent;
+}
+
 .landing {
 
     &__title {
@@ -82,6 +86,66 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+// Experience
+
+.poem {
+
+    &__title, &__verse {
+        font-family: 'Instrument Serif', serif;
+    }
+
+    &__title {
+        font-size: 3.8rem;
+        color: $dark-accent;
+    }
+
+    &__verse {
+        font-size: 2.1rem;
+        color: $dark-text;
+        line-height: 160%;
+        font-style: italic;
+    }
+}
+
+.zenith {
+        &__title {
+            color: $light-accent;
+        }
+
+        &__verse {
+            color: $light-text;
+        }
+}
+
+.interface {
+    &__title {
+        font-size: 2.1rem;
+        color: $dark-text;
+        font-family: 'Instrument Serif', serif;
+    }
+}
+
+.subtitles {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: $dark-text;
+    line-height: 140%;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 429px) {
+    .poem {
+        &__title {
+            font-size: 5.1rem;
+        }
+        &__verse {
+            font-size: 2.8rem;
+        }
+    }
+}
+
 @media (min-width: 767px) {
     .landing {
         &__span {
@@ -121,6 +185,20 @@ h1, h2, h3, h4, h5, h6 {
             }
         }
     }
+
+    .sound {
+        & .message {
+            &__text {
+                font-size: 2.8rem;
+            }
+        }
+    }
+
+    .poem {
+        &__title {
+            font-size: 6.7rem;
+        }
+    }
 }
 
 @media (min-width: 1023px) {
@@ -136,4 +214,6 @@ h1, h2, h3, h4, h5, h6 {
             }
         }
     }
+
+    
 }

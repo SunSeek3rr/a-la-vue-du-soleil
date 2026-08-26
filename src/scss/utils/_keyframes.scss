@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 // Landing - Images
 
 @keyframes floatImage {
@@ -26,3 +28,4 @@
     transform: scaleY(1);
   }
 }
+

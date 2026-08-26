@@ -7,9 +7,13 @@
 @use "components/header";
 @use "components/sound";
 @use "components/button";
+@use "components/interface";
 
 body {
     background-color: $dark-bg;
+}
+
+body[data-page='index'] {
     overflow: hidden;
 }
 
@@ -19,7 +23,7 @@ body {
     flex-direction: column-reverse;
     height: 100svh;
     width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
     overflow-y: visible;
 
     &__anim {
@@ -68,7 +72,7 @@ body {
     }
 
     &__image {
-        width: 36vw;
+        width: 32vw;
         flex-shrink: 0;
         aspect-ratio: 81/124;
 
@@ -89,11 +93,19 @@ body {
         &:nth-child(2) {
             translate: 0 -3.2rem;
             animation: floatImage 4s ease-in-out .4s infinite alternate-reverse;
+
+            & img {
+                object-position: 58% 50%;
+            }
         }
 
         &:nth-child(3) {
             translate: 0 1rem;
             animation: floatImage 4s ease-in-out .8s infinite alternate-reverse;
+
+            & img {
+                object-position: 58% 50%;
+            }
         }
     }
 
@@ -146,7 +158,6 @@ body {
 }
 
 .section__wrapper {
-    display: contents;
     margin-top: 12.8rem;
 }
 
@@ -219,6 +230,183 @@ body {
     }
 }
 
+// Experience
+
+.dawn, .zenith, .dusk, .night {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100svh;
+    // opacity: 0;
+    // visibility: hidden;
+    overflow: hidden;
+
+    &__content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1.6rem;
+        background-color: $dark-bg;
+
+        &::before {
+            display: block;
+            content: "";
+            position: absolute;
+            width: calc(100vw - (1.6rem * 2));
+            height: calc(100vw - (1.6rem * 2));
+            background-color: $dark-accent;
+            border-radius: 50%;
+
+            box-shadow: 0 0 200px 115px $dark-accent;
+
+        }
+    }
+
+    & .btn {
+        &--poem {
+            width: fit-content;
+            align-self: flex-end;
+            margin-top: 7.2rem;
+            z-index: 2;
+        }
+    }
+
+
+}
+
+.dawn {
+    z-index: 99;
+
+    &__content {
+        &::before {
+            top: calc(100% - 10%);
+            left: -50%;
+            right: auto;
+            bottom: auto;
+        }
+    }
+
+    &__image-container {
+        width: 100%;
+        height: 100%;
+        
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 50%;
+        }
+    }
+
+}
+
+.zenith {
+    z-index: 98;
+    
+    &__content {
+        background-color: $light-bg;
+        &::before {
+            top: -100%;
+            left: auto;
+            right: auto;
+            bottom: auto;
+            background-color: $light-bg;
+            box-shadow: 0 0 200px 115px $light-bg;
+        }
+    }
+
+    & .btn {
+        &--poem {
+            border-color: $light-text;
+            background-color: transparent;
+
+            & path {
+                fill: $light-text;
+            }
+
+            &:hover, &:active {
+                background-color: $dark-bg;
+
+                & path {
+                    fill: $dark-text;
+                }
+            }
+        }
+    }
+}
+
+.dusk {
+    z-index: 97;
+
+    &__content {
+        &::before {
+            top: calc(100% - 10%);
+            left: auto;
+            right: -50%;
+            bottom: auto;
+        }
+    }
+}
+
+.night {
+    z-index: 96;
+
+    &__content {
+        &::before {
+            top: 110%;
+            left: auto;
+            right: -60%;
+            bottom: auto;
+            box-shadow: 0 0 0px 15px $dark-accent;
+        }
+    }
+}
+
+.poem {
+    
+    &-container {
+        position: relative;
+        &::before {
+            display: block;
+            content: "";
+            position: absolute;
+            height: calc(100% + .8rem);
+            top: -.4rem;
+            left: 2.4rem;
+            width: 1px;
+            background-color: $dark-accent;
+        }
+    }
+
+    &__title {
+        margin: 0 0 6.4rem 2.4rem;
+    }
+
+    &__verse {
+        margin-left: 4.8rem;
+    }
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+
+    &-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        z-index: -1;
+    }
+}
+
 @media (min-width: 392px){
     .landing {
 
@@ -227,8 +415,38 @@ body {
             gap: 2.4rem;
         }
 
+        &__gallery {
+            transform: translate(-50%, -45%);
+        }
+
         &__image {
-            width: 41.5vw;
+            width: 39.5vw;
+        }
+    }
+
+    .poem {
+        &__title {
+            margin: 0 0 6.4rem 1.6rem;
+        }
+
+        &-container {
+            &::before {
+                left: 1.6rem;
+            }
+        }
+    }
+
+    .dawn, .zenith, .dusk, .night {
+        &__content {
+            padding: 2.4rem;
+        }
+    }
+
+    .dawn, .dusk {
+        &__content {
+            &::before {
+                top: calc(100% - 15%);
+            }
         }
     }
 }
@@ -276,6 +494,51 @@ body {
     .intro, .functioning {
         padding: 0 4.8rem;
     }
+
+    .dawn, .zenith, .dusk, .night {
+        &__content {
+            padding: 4.8rem;
+
+            &::before {
+                box-shadow: 0 0 350px 220px $dark-accent;
+            }
+        }
+    }
+
+    .zenith {
+        &__content {
+            &::before {
+                box-shadow: 0 0 30px 20px $light-bg;
+            }
+        }
+    }
+
+    .night {
+        &__content {
+            &::before {
+                box-shadow: 0 0 350px 220px $dark-bg;
+            }
+        }
+    }
+
+    .poem {
+        &__title {
+            margin: 0 0 7.2rem 12.8rem;
+        }
+
+        &-container {
+            width: fit-content;
+            margin-left: 12.8rem;
+
+            &::before {
+                left: 0;
+            }
+        }
+
+        &__verse {
+            margin-left: 3.2rem;
+        }
+    }
 }
 
 @media (min-width: 1023px) {
@@ -302,6 +565,7 @@ body {
             z-index: -1;
             width: 100%;
             height: 100%;
+            overflow: visible;
         }
 
         &__image {
@@ -346,6 +610,78 @@ body {
     .intro, .functioning {
         width: 70%;
     }
+
+    .dawn, .zenith, .dusk, .night {
+        &__content {
+            &::before {
+                width: calc(100vw - 32rem);
+                height: calc(100vw - 32rem);
+
+                box-shadow: 0 0 320px 130px $dark-accent;
+            }
+        }
+
+        & .btn {
+            &--poem {
+                position: absolute;
+                top: 50%;
+                margin: 0;
+                transform: translateY(-50%);
+                padding: 2rem 5.6rem;
+            }
+        }
+    }
+
+    .dawn {
+        &__content {
+            &::before {
+                left: -30%;
+            }
+        }
+    }
+
+    .dusk {
+        &__content {
+            &::before {
+                right: -30%;
+            }
+        }
+    }
+
+    .zenith {
+        &__content {
+            &::before {
+                box-shadow: 0 0 30px 20px $light-bg;
+            }
+        }
+    }
+
+    .night {
+        &__content {
+            &::before {
+                box-shadow: 0 0 350px 220px $dark-bg;
+            }
+        }
+    }
+
+    .poem {
+        &__title {
+            margin: 0 0 6.4rem 23.2rem;
+        }
+
+        &-container {
+            width: fit-content;
+            margin-left: 23.2rem;
+
+            &::before {
+                left: 0;
+            }
+        }
+
+        &__verse {
+            margin-left: 3.2rem;
+        }
+    }
 }
 
 @media (min-width: 1365px) {
@@ -371,6 +707,34 @@ body {
     .intro, .functioning {
         width: 65%;
     }
+
+    .dawn, .zenith, .dusk, .night {
+        &__content {
+            padding: 6.4rem;
+        }
+    }
+
+    .dawn {
+        &__content {
+            &::before {
+                left: -40%;
+            }
+        }
+    }
+
+    .dusk {
+        &__content {
+            &::before {
+                right: -40%;
+            }
+        }
+    }
+
+    .poem {
+        &__title {
+            margin: 0 0 7.2rem 23.2rem;
+        }
+    }
 }
 
 @media (min-width: 1439px){
@@ -390,6 +754,12 @@ body {
             &:nth-of-type(3) {
                 right: 6.4rem;
             }
+        }
+    }
+
+    .dawn, .zenith, .dusk, .night {
+        &__content {
+            padding: 7.2rem;
         }
     }
 
@@ -421,6 +791,18 @@ body {
     .intro, .functioning {
         width: 50%;
     }
+
+    .dawn, .zenith, .dusk, .night {
+        &__content {
+            padding: 9.6rem;
+        }
+    }
+
+    .poem {
+        &__title {
+            margin: 0 0 7.2rem 23.2rem;
+        }
+    }
 }
 
 @media (min-width: 1875px) {
@@ -440,6 +822,12 @@ body {
             &:nth-of-type(3) {
                 right: 20rem;
             }
+        }
+    }
+
+    .dawn, .zenith, .dusk, .night {
+        &__content {
+            padding: 12.8rem;
         }
     }
 }

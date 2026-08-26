@@ -28,7 +28,7 @@
 
         transform: translateX(100%);
 
-        transition: transform .6s $power2inOut;
+        transition: transform .8s $power2inOut;
     }
 }
 
@@ -42,7 +42,7 @@
     z-index: 97;
 
     transform: translateX(100%);
-    transition: transform .6s $power2inOut;
+    transition: transform .8s $power2inOut;
 
     &__list {
         display: flex;
@@ -140,6 +140,13 @@ body {
                     transform: rotateZ(-45deg)
                 }
             }
+        }
+    }
+
+    &.is-resizing {
+
+        & .menu, & .header::after {
+            transition: none !important;
         }
     }
 }
