@@ -2,56 +2,52 @@ import { gsap } from "gsap";
 
 export class Loader {
     static init() {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                const loader = document.querySelector('.loader');
-                if (loader) {
-                    loader.style.opacity = 1;
-                    loader.style.visibility = "visible";
-                }
-            }, 1);
+    return new Promise((resolve) => {
+        const page = document.body.getAttribute('data-page');
+        
+        this.progressBar = document.querySelector("#progressBar");
+        this.progressText = document.querySelector(".loader__progress");
+        this.progressObj = { value: 0 };
 
-            this.progressBar = document.querySelector("#progressBar");
-            this.progressText = document.querySelector(".loader__progress");
-            this.progressObj = { value: 0 };
+        const loaderDuration = page === 'experience' ? 6 : 2.4;
 
-
-            this.loading = gsap.to(this.progressObj, {
-                value: 99,
-                duration: 6,
-                ease: 'power1.out',
-                onUpdate: () => this.updateLoader()
-            });
-
-
-            window.addEventListener('load', () => {
-                this.loading.kill();
-                
-                gsap.to(this.progressObj, {
-                    value: 100,
-                    duration: 0.3,
-                    onUpdate: () => this.updateLoader(),
-                    onComplete: () => {
-                        const page = document.body.getAttribute('data-page');
-
-                        if (page === 'index') {
-                            gsap.to(['.sound', '.header'], {
-                                opacity: 1,
-                                visibility: 'visible'
-                            });
-
-                            document.querySelector('.menu').removeAttribute('style');
-                        }
-
-
-                        this.startSunAnimation(() => {
-                            resolve();
-                        });
-                    }
-                });
-            });
+        const fakeProgress = gsap.to(this.progressObj, {
+            value: 99,
+            duration: loaderDuration,
+            ease: 'power1.out',
+            onUpdate: () => this.updateLoader()
         });
-    }
+
+        const openSite = () => {
+            fakeProgress.kill();
+            
+            gsap.to(this.progressObj, {
+                value: 100,
+                duration: 0.2,
+                onUpdate: () => this.updateLoader(),
+                onComplete: () => {
+                    this.finishLoading(resolve);
+                }
+            });
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const targetSectionName = urlParams.get('section') || 'dawn';
+
+        let mainVideo = document.querySelector(`.${targetSectionName} video`) || document.querySelector('video');
+
+        if (!mainVideo) {
+            openSite();
+            return;
+        }
+
+        if (mainVideo.readyState >= 4) {
+            openSite();
+        } else {
+            mainVideo.addEventListener('canplaythrough', openSite, { once: true });
+        }
+    });
+}
 
     static updateLoader() {
         const percentage = Math.round(this.progressObj.value);
@@ -63,15 +59,36 @@ export class Loader {
         }
     }
 
+    static finishLoading(resolve) {
+        const page = document.body.getAttribute('data-page');
+
+        if (page === 'index') {
+            gsap.to(['.sound', '.header'], {
+                opacity: 1,
+                visibility: 'visible'
+            });
+
+            const menu = document.querySelector('.menu');
+            if (menu) menu.removeAttribute('style');
+        }
+        
+        resolve();
+        this.startSunAnimation()
+    }
+
     static startSunAnimation(callback) {
         const page = document.body.getAttribute('data-page');
 
         const loaderTl = gsap.timeline({
             defaults: { ease: "power1.out" },
             onComplete: () => {
-                gsap.to(".main", { opacity: 1, visibility: "visible", duration: 0.4 });
+                gsap.to(".main", {
+                    opacity: 1,
+                    visibility: "visible",
+                    duration: 0.4
+                });
                 
-                if(page === 'index') {
+                if (page === 'index') {
                     gsap.set(['.message-container', '.sound__btn'], {
                         opacity: 0
                     });
@@ -83,16 +100,14 @@ export class Loader {
                     ease: "power4.in",
                     onComplete: () => {
                         document.querySelector(".loader")?.remove();
-
                         if (page === 'index') {
                             gsap.to([".message-container", ".sound__btn"], {
                                 opacity: 1,
                                 duration: 1.2,
-                                delay:.3,
+                                delay: .3,
                                 ease: "power3.out"
                             });
                         }
-
                         if (callback) callback();
                     }
                 });
@@ -112,13 +127,13 @@ export class Loader {
             attr: { x2: 220 },
             duration: 0.2
         }, 0);
-        
+
         loaderTl.to('.loader', {
             backgroundColor: '#020026',
             duration: 1.2,
             delay: 1.2
         }, 0);
-        
+
         loaderTl.to('.loader__progress', {
             color: '#FEFAF7',
             duration: 1.2,

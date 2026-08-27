@@ -27,9 +27,8 @@ Loader.init().then(async ()=> {
 
     const { Experience } = await import("./Experience.js");
 
-    // new Experience();
+    new Experience();
   }
-  
 
 });
 

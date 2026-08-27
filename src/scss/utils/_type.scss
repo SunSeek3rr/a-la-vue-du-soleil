@@ -107,6 +107,25 @@ i {
     }
 }
 
+.dawn {
+    &__btn {
+        color: $dark-text;
+
+        transition: color .3s $power2inOut;
+
+        &:hover, &:active {
+            color: $light-text;
+        }
+    }
+}
+
+.night {
+    &__doubt {
+        font-size: 1.6rem;
+        text-shadow: 0 1px 6px rgba(0,0,0,.6);
+    }
+}
+
 .zenith {
         &__title {
             color: $light-accent;
@@ -114,6 +133,11 @@ i {
 
         &__verse {
             color: $light-text;
+        }
+
+        &__instruction {
+            font-size: 2.1rem;
+            color: $dark-text;
         }
 }
 
@@ -132,7 +156,7 @@ i {
     color: $dark-text;
     line-height: 140%;
     text-align: center;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 1px 6px rgba(0,0,0,.6);
 }
 
 @media (min-width: 429px) {
@@ -194,10 +218,31 @@ i {
         }
     }
 
+    .night {
+        &__doubt {
+            font-size: 2.8rem;
+        }
+    }
+
     .poem {
         &__title {
             font-size: 6.7rem;
         }
+    }
+
+    .interface {
+
+        &__title {
+            font-size: 2.8rem;
+        }
+
+        & .poem__verse {
+            font-size: 2.1rem;
+        }
+    }
+
+    .subtitles {
+        font-size: 2.1rem;
     }
 }
 
